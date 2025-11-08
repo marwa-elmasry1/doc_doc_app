@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/core/routing/routes.dart';
 import 'package:new_project/features/on_boarding/on_boarding_screen.dart';
+import 'package:new_project/features/splash/splash_screen.dart';
 
 class AppRoutes{
   Route generateRoute(RouteSettings settings){
@@ -9,6 +10,9 @@ class AppRoutes{
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
             builder: (_) => const OnBoardingScreen());
+      case Routes.splashScreen:
+        return MaterialPageRoute(
+            builder: (_) => const SplashScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
