@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_project/core/routing/routes.dart';
+import 'package:new_project/features/login/ui/login_screen.dart';
 import 'package:new_project/features/on_boarding/on_boarding_screen.dart';
 import 'package:new_project/features/splash/splash_screen.dart';
 
@@ -13,6 +14,9 @@ class AppRoutes{
       case Routes.splashScreen:
         return MaterialPageRoute(
             builder: (_) => const SplashScreen());
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+            builder: (_) => const LoginScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
