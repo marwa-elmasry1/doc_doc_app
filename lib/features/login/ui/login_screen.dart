@@ -4,9 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:new_project/core/helpers/spacing.dart';
 import 'package:new_project/core/theming/text_styles.dart';
 import 'package:new_project/core/widgets/app_text_button.dart';
-import 'package:new_project/features/login/data/models/login_request_body.dart';
 import 'package:new_project/features/login/logic/cubit/login_cubit.dart';
-import 'package:new_project/features/login/ui/widgets/already_have_account.dart';
+import 'package:new_project/features/login/ui/widgets/dont_have_account.dart';
 import 'package:new_project/features/login/ui/widgets/email_and_password.dart';
 import 'package:new_project/features/login/ui/widgets/login_bloc_listener.dart';
 import 'package:new_project/features/login/ui/widgets/terms_and_condtions_text.dart';
@@ -33,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                 verticalSpace(36),
                 Column(
                   children: [
-                    const EmailAndPassword(),
+                     EmailAndPassword(),
                     verticalSpace(24),
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
@@ -52,8 +51,8 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(16),
                     const TermAndConditionsText(),
                     verticalSpace(60),
-                    const AlreadyHaveAccount(),
-                    const LoginBlocListener(),
+                    const DontHaveAccount(),
+                     LoginBlocListener(),
                   ],
                 ),
               ],
@@ -65,13 +64,18 @@ class LoginScreen extends StatelessWidget {
   }
 
   void validateThenLogin(BuildContext context) {
-    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginStates(
-        LoginRequestBody(
-          context.read<LoginCubit>().emailEditingController.text,
-          context.read<LoginCubit>().passwordEditingController.text,
-        ),
-      );
-    }
+if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+  context.read<LoginCubit>().emitLoginStates();
+}
+
+// even i use controller in ui use this code blew
+  //   if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+  //     context.read<LoginCubit>().emitLoginStates(
+  //       LoginRequestBody(
+  //         context.read<LoginCubit>().emailEditingController.text,
+  //         context.read<LoginCubit>().passwordEditingController.text,
+  //       ),
+  //     );
+  //   }
   }
 }

@@ -4,7 +4,6 @@ import 'package:new_project/core/helpers/app_rejex.dart';
 import 'package:new_project/core/helpers/spacing.dart';
 import 'package:new_project/core/widgets/app_text_form_field.dart';
 import 'package:new_project/features/login/logic/cubit/login_cubit.dart';
-import 'package:new_project/features/login/ui/widgets/password_validations.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -16,30 +15,30 @@ class EmailAndPassword extends StatefulWidget {
 class _EmailAndPasswordState extends State<EmailAndPassword> {
   bool isObSecured = true;
   late TextEditingController passwordController;
-  bool hasLowerCase = false;
-  bool hasUpperCase = false;
-  bool hasSpecialChar = false;
-  bool hasNumber = false;
-  bool hasMminLength = false;
+  // bool hasLowerCase = false;
+  // bool hasUpperCase = false;
+  // bool hasSpecialChar = false;
+  // bool hasNumber = false;
+  // bool hasMminLength = false;
 
   @override
   void initState() {
     super.initState();
     passwordController = context.read<LoginCubit>().passwordEditingController;
-    setupPasswordControllerListner();
+    // setupPasswordControllerListner();
   }
 
-  void setupPasswordControllerListner() {
-    passwordController.addListener(() {
-      setState(() {
-        hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
-        hasMminLength = AppRegex.hasMinLength(passwordController.text);
-        hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
-        hasSpecialChar = AppRegex.hasSpecialCharacter(passwordController.text);
-        hasNumber = AppRegex.hasNumber(passwordController.text);
-      });
-    });
-  }
+  // void setupPasswordControllerListner() {
+  //   passwordController.addListener(() {
+  //     setState(() {
+  //       hasLowerCase = AppRegex.hasLowerCase(passwordController.text);
+  //       hasMminLength = AppRegex.hasMinLength(passwordController.text);
+  //       hasUpperCase = AppRegex.hasUpperCase(passwordController.text);
+  //       hasSpecialChar = AppRegex.hasSpecialCharacter(passwordController.text);
+  //       hasNumber = AppRegex.hasNumber(passwordController.text);
+  //     });
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -80,14 +79,14 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
             },
             controller: context.read<LoginCubit>().passwordEditingController,
           ),
-          verticalSpace(24),
-          PasswordValidations(
-            hasLowerCase: hasLowerCase,
-            hasUpperCase: hasUpperCase,
-            hasSpecialChar: hasSpecialChar,
-            hasNumber: hasNumber,
-            hasMminLength: hasMminLength,
-          ),
+          // verticalSpace(24),
+          // PasswordValidations(
+          //   hasLowerCase: hasLowerCase,
+          //   hasUpperCase: hasUpperCase,
+          //   hasSpecialChar: hasSpecialChar,
+          //   hasNumber: hasNumber,
+          //   hasMminLength: hasMminLength,
+          // ),
         ],
       ),
     );
