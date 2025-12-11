@@ -8,8 +8,8 @@ void main() {
 
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.amber,
-      statusBarColor: Colors.green
+      systemNavigationBarColor: const Color.fromARGB(255, 7, 181, 255),
+      statusBarColor: const Color.fromARGB(255, 126, 171, 128)
     )
   );
   runApp(DocApp(appRouter: AppRoutes(),));
