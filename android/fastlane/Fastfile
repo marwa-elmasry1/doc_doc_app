@@ -1,0 +1,23 @@
+vdefault_platform(:android)
+
+ENV["FASTLANE_HTTP_TIMEOUT"] = "600"
+
+platform :android do
+  desc "Lane For Android Firebase App Distibution"
+  lane :firebase_distribution do
+    sh "flutter clean"
+    sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
+    firebase_app_distribution(
+      app: "1:566469475610:android:1f68a719378f26998fc0a3",
+      firebase_cli_token: ENV["FIREBASE_TOKEN"],
+      android_artifact_type: "APK",
+      android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+      testers: "marwaelmasry592002@gmail.com",
+      release_notes: "First Fastlane FireBase Distribution DOCDOC",
+      upload_timeout: 600
+    )
+  end
+end
+
+// 
+
