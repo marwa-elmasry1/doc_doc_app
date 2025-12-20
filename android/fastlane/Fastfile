@@ -1,4 +1,4 @@
-vdefault_platform(:android)
+default_platform(:android)
 
 ENV["FASTLANE_HTTP_TIMEOUT"] = "600"
 
