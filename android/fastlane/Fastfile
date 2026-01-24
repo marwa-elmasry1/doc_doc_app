@@ -1,4 +1,4 @@
-vdefault_platform(:android)
+default_platform(:android)
 
 ENV["FASTLANE_HTTP_TIMEOUT"] = "600"
 
@@ -9,7 +9,7 @@ platform :android do
     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
     firebase_app_distribution(
       app: "1:566469475610:android:1f68a719378f26998fc0a3",
-      firebase_cli_token: ENV["FIREBASE_TOKEN"],
+      firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
       testers: "marwaelmasry592002@gmail.com",
